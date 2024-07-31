@@ -3,7 +3,7 @@ const connection = mysql.createConnection({
   host     : 'localhost', 
   database : 'todo_app',
   user     : 'root',
-  password : '123456'
+  password : ''
 });
 
 connection.connect((err) => {
