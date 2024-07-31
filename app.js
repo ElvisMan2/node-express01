@@ -1,4 +1,6 @@
 const express=require('express');
+const cors = require('cors');
+
 
 const PORT=process.env.PORT || 3000;
 const userRoutes=require('./routes/usersRoutes');//importa una función que define las rutas de la app
@@ -7,6 +9,12 @@ const taskRoutes=require('./routes/tasksRoutes');//importa una función que defi
 const app=express();
 // Middleware para analizar datos JSON
 app.use(express.json());
+
+app.use(cors({
+    origin: '*', // Permitir todos los orígenes (puedes restringirlo a dominios específicos)
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type']
+}));
 
 //agregando las ruta de usuarios
 userRoutes(app);
